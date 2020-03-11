@@ -18,6 +18,8 @@ public class Utilisateur implements Serializable{
 	private String email;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
+	private String username;
+	private String password;
 	
 	
 	public String getEmail() {
@@ -44,15 +46,30 @@ public class Utilisateur implements Serializable{
 	public void setIdUtilisateur(Long idUtilisateur) {
 		this.idUtilisateur = idUtilisateur;
 	}
-	public Utilisateur(Long idUtilisateur, String email, String nomUtilisateur, String prenomUtilisateur) {
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public Utilisateur() {
 		super();
-		this.idUtilisateur = idUtilisateur;
+	}
+	public Utilisateur(String email, String nomUtilisateur, String prenomUtilisateur, String username,
+			String password) {
+		super();
 		this.email = email;
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
-	}
-	public Utilisateur() {
-		super();
+		this.username = username;
+		this.password = password;
 	}
 	
 	
