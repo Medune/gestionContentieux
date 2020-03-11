@@ -10,5 +10,5 @@ public interface IUtilisateurService {
 	Utilisateur findOne(Long id);
 	Utilisateur save(Utilisateur user);
 	void delete(Long id);
-	
+	Utilisateur findOneByUsername(String username);
 }

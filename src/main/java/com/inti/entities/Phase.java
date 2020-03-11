@@ -50,9 +50,8 @@ public class Phase implements Serializable {
 	public void setDateFin(Date datefin) {
 		this.dateFin = datefin;
 	}
-	public Phase(Long idPhase, String nomPhase, Date dateDebut, Date dateFin) {
+	public Phase(String nomPhase, Date dateDebut, Date dateFin) {
 		super();
-		this.idPhase = idPhase;
 		this.nomPhase = nomPhase;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;

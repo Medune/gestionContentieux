@@ -52,9 +52,8 @@ public class Document implements Serializable{
 	public Document() {
 		super();
 	}
-	public Document(Long idDocument, Date dateCreation, String nom, String description) {
+	public Document(Date dateCreation, String nom, String description) {
 		super();
-		this.idDocument = idDocument;
 		this.dateCreation = dateCreation;
 		this.nom = nom;
 		this.description = description;

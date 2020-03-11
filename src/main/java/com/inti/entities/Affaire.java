@@ -51,9 +51,8 @@ public class Affaire  implements Serializable{
 	public void setStatut(int statut) {
 		this.statut = statut;
 	}
-	public Affaire(Long idAffaire, String reference, String titre, String description, int statut) {
+	public Affaire(String reference, String titre, String description, int statut) {
 		super();
-		this.idAffaire = idAffaire;
 		this.reference = reference;
 		this.titre = titre;
 		this.description = description;

@@ -56,9 +56,8 @@ public class Tache  implements Serializable{
 	public void setStatutAudience(boolean statutAudience) {
 		this.statutAudience = statutAudience;
 	}
-	public Tache(Long idTache, Date dateCreation, String titre, String description, boolean statutAudience) {
+	public Tache(Date dateCreation, String titre, String description, boolean statutAudience) {
 		super();
-		this.idTache = idTache;
 		this.dateCreation = dateCreation;
 		this.titre = titre;
 		this.description = description;
