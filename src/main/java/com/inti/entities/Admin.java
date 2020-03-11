@@ -7,7 +7,6 @@ public class Admin extends Utilisateur{
 
 	private static final long serialVersionUID = 1L;
 	
-	
-	
+		
 	
 }
