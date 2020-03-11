@@ -37,7 +37,6 @@ public class UtilisateurService implements IUtilisateurService {
 
 	@Override
 	public Utilisateur findOneByUsername(String username) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

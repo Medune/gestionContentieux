@@ -25,15 +25,16 @@ import com.inti.service.impl.AppUserDetailsService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private AppUserDetailsService userDetailsService;
-
+	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
-
+	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/users/**", "/roles/**");
 	}
 
+	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http
 		.authorizeRequests()

@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 @DiscriminatorValue("professionel")
 public class Professionel extends Tiers {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private String raisonSocial;
@@ -24,12 +22,10 @@ public class Professionel extends Tiers {
 
 	public Professionel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Professionel(String adresse, double tel) {
 		super(adresse, tel);
-		// TODO Auto-generated constructor stub
 	}
 
 }
