@@ -9,7 +9,6 @@ public interface IUtilisateurService {
 	
 	List<Utilisateur> findAll();
 	Utilisateur findOne(Long id);
-	Utilisateur findOneByUsername(String username);
 	Utilisateur save(Utilisateur user);
 	void delete(Long id);
 	

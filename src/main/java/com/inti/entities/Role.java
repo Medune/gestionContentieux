@@ -38,7 +38,6 @@ public class Role implements Serializable {
 	}
 
 	public Role(String libelle) {
-		super();
 		this.libelle = libelle;
 	}
 }
