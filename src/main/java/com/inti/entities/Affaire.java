@@ -25,6 +25,8 @@ public class Affaire  implements Serializable{
 	private String description;
 	private int statut;
 	
+	@ManyToOne
+	private Utilisateur utilisateur;
 	@OneToMany(mappedBy="affaire", fetch=FetchType.EAGER)
 	private Set<Phase> phases = new HashSet<>();
 	@ManyToOne
@@ -64,6 +66,12 @@ public class Affaire  implements Serializable{
 	public void setStatut(int statut) {
 		this.statut = statut;
 	}
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
+	}
 	public Set<Phase> getPhases() {
 		return phases;
 	}
@@ -86,14 +94,15 @@ public class Affaire  implements Serializable{
 	public Affaire() {
 		super();
 	}
-	public Affaire(String reference, String titre, String description, int statut, Tribunal tribunal) {
+	public Affaire(String titre, String description, int statut, Utilisateur utilisateur, Tribunal tribunal) {
 		super();
-		this.reference = reference;
 		this.titre = titre;
 		this.description = description;
 		this.statut = statut;
+		this.utilisateur = utilisateur;
 		this.tribunal = tribunal;
 	}
+
 	
 	
 }
