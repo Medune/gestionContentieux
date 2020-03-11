@@ -1,11 +1,15 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Tribunal implements Serializable{
@@ -19,6 +23,8 @@ public class Tribunal implements Serializable{
 	private double fax;
 	private double tel;
 	private String region;
+	@OneToMany(mappedBy="tribunal", fetch=FetchType.EAGER)
+	private Set<Affaire> affaires = new HashSet<>();
 	
 	
 	public Long getIdTribunal() {
@@ -50,8 +56,13 @@ public class Tribunal implements Serializable{
 	}
 	public void setRegion(String region) {
 		this.region = region;
+	}	
+	public Set<Affaire> getAffaires() {
+		return affaires;
 	}
-	
+	public void setAffaires(Set<Affaire> affaires) {
+		this.affaires = affaires;
+	}
 	public Tribunal() {
 		super();
 	}

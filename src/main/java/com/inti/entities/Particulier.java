@@ -1,5 +1,10 @@
 package com.inti.entities;
 
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("particulier")
 public class Particulier extends Tiers{
 
 	

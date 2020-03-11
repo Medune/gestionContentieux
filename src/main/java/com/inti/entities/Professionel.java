@@ -1,6 +1,11 @@
 package com.inti.entities;
 
-public class Professionel  extends Tiers{
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue("professionel")
+public class Professionel extends Tiers {
 
 	/**
 	 * 
@@ -26,6 +31,5 @@ public class Professionel  extends Tiers{
 		super(adresse, tel);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
 }
