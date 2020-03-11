@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
@@ -20,27 +22,26 @@ public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
 
-	@RequestMapping(value = "users", method = RequestMethod.GET)
+	@GetMapping(value = "users")
 	public List<Utilisateur> findAll() {
 		return utilisateurService.findAll();
 	}
 
-	@RequestMapping(value = "users/{idUtilisateur}", method = RequestMethod.GET)
+	@GetMapping(value = "users/{idUtilisateur}")
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
 	}
-
-	@RequestMapping(value = "users", method = RequestMethod.POST)
+	@PostMapping(path = "users")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		return utilisateurService.save(utilisateur);
 	}
 
-	@RequestMapping(value = "users/{idUtilisateur}", method = RequestMethod.DELETE)
+	@DeleteMapping(value = "users/{idUtilisateur}")
 	public void deleteUtilisateur(@PathVariable("idUtilisateur") Long id) {
 		utilisateurService.delete(id);
 	}
 
-	@RequestMapping(value = "users/{idUtilisateur}", method = RequestMethod.PUT) // PUT pour faire des mises à jour
+	@PutMapping(value = "users/{idUtilisateur}") // PUT pour faire des mises à jour
 	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long id, @RequestBody Utilisateur user) {
 		Utilisateur currentUtilisateur = utilisateurService.findOne(id);
 		currentUtilisateur.setNomUtilisateur(user.getNomUtilisateur());
