@@ -1,7 +1,6 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.HashSet;
 
@@ -12,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -28,9 +27,8 @@ public class Utilisateur implements Serializable {
 	private String prenomUtilisateur;
 	private String username;
 	private String password;
-	@ManyToOne(fetch=FetchType.EAGER)
-
-	@JoinTable(name="Profil",  joinColumns= {@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur")}, 
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(name="Profil", joinColumns= {@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur")}, 
 	inverseJoinColumns= {@JoinColumn(name="id_Role",table="role",referencedColumnName="idRole")})
 	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
