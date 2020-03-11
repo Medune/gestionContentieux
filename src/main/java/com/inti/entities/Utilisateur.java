@@ -28,7 +28,7 @@ public class Utilisateur implements Serializable {
 	private String username;
 	private String password;
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinTable(name="",  joinColumns=@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur"), inverseJoinColumns=@JoinColumn(name="Role",referencedColumnName="idRole"))
+	@JoinTable(name="profil",  joinColumns=@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur"), inverseJoinColumns=@JoinColumn(name="Role",referencedColumnName="idRole"))
 	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
 	private Set<Affaire> affaires = new HashSet<>();
