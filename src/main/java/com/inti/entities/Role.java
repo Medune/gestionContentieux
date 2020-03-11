@@ -1,8 +1,7 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
