@@ -35,4 +35,10 @@ public class UtilisateurService implements IUtilisateurService {
 		utilisateurRepository.delete(id);
 	}
 
+	@Override
+	public Utilisateur findOneByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
