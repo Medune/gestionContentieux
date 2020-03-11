@@ -31,8 +31,8 @@ public class Particulier extends Tiers{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Particulier(Long idTiers, String adresse, double tel) {
-		super(idTiers, adresse, tel);
+	public Particulier(String adresse, double tel) {
+		super(adresse, tel);
 	}
 	
 	

@@ -22,8 +22,8 @@ public class Professionel  extends Tiers{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Professionel(Long idTiers, String adresse, double tel) {
-		super(idTiers, adresse, tel);
+	public Professionel(String adresse, double tel) {
+		super(adresse, tel);
 		// TODO Auto-generated constructor stub
 	}
 	

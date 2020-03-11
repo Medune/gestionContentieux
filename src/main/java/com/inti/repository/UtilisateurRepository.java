@@ -9,3 +9,4 @@ import com.inti.entities.Utilisateur;
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> { // Long fait référence au type de l'id
 
 }
+ 

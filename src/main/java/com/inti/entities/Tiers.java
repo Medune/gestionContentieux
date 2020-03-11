@@ -38,9 +38,8 @@ public class Tiers  implements Serializable{
 	public Tiers() {
 		super();
 	}
-	public Tiers(Long idTiers, String adresse, double tel) {
+	public Tiers(String adresse, double tel) {
 		super();
-		this.idTiers = idTiers;
 		this.adresse = adresse;
 		this.tel = tel;
 	}
