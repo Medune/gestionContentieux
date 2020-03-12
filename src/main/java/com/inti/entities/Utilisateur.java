@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,10 @@ public class Utilisateur implements Serializable {
 	private String email;
 	private String nomUtilisateur;
 	private String prenomUtilisateur;
+	@Column(unique=true)
 	private String username;
 	private String password;
+	private boolean enabled = true;
 	@ManyToMany(fetch=FetchType.EAGER)
 	@JoinTable(name="Profil", joinColumns= {@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur")}, 
 	inverseJoinColumns= {@JoinColumn(name="id_Role",table="role",referencedColumnName="idRole")})
@@ -111,6 +114,14 @@ public class Utilisateur implements Serializable {
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.username = username;
 		this.password = password;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }

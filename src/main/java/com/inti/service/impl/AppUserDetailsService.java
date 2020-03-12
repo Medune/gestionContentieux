@@ -24,6 +24,10 @@ public class AppUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Utilisateur utilisateur=utilisateurService.findOneByUsername(username);
+		  String dBuserName = utilisateur.getUsername();
+		    if(dBuserName == null){
+		        throw new UsernameNotFoundException("User not authorized.");
+		    }
 		Set<Role> roles=utilisateur.getRoles();
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
 		for (Role  role : roles) {

@@ -37,7 +37,7 @@ public class UtilisateurService implements IUtilisateurService {
 
 	@Override
 	public Utilisateur findOneByUsername(String username) {
-		return null;
+		return utilisateurRepository.findOneByUsername(username);
 	}
 
 }
