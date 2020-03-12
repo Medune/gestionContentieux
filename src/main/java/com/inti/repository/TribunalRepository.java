@@ -8,4 +8,5 @@ import com.inti.entities.Tribunal;
 @Repository
 public interface TribunalRepository extends JpaRepository<Tribunal, Long>{
 
+	Tribunal findOneByNomTribunal(String nomTribunal);
 }

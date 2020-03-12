@@ -19,6 +19,7 @@ public class Tribunal implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idTribunal;
+	private String nomTribunal;
 	private String adresse;
 	private double fax;
 	private double tel;
@@ -63,15 +64,25 @@ public class Tribunal implements Serializable{
 	public void setAffaires(Set<Affaire> affaires) {
 		this.affaires = affaires;
 	}
+
+	public String getNomTribunal() {
+		return nomTribunal;
+	}
+	public void setNomTribunal(String nomTribunal) {
+		this.nomTribunal = nomTribunal;
+	}
+	
 	public Tribunal() {
 		super();
 	}
-	public Tribunal(String adresse, double fax, double tel, String region) {
+	public Tribunal(String nomTribunal, String adresse, double fax, double tel, String region, Set<Affaire> affaires) {
 		super();
+		this.nomTribunal = nomTribunal;
 		this.adresse = adresse;
 		this.fax = fax;
 		this.tel = tel;
 		this.region = region;
+		this.affaires = affaires;
 	}
 	
 	

@@ -38,5 +38,11 @@ public class TacheService implements ITacheService{
 		
 	}
 
+	@Override
+	public Tache findOneByTitre(String titre) {
+		// TODO Auto-generated method stub
+		return tacheRepository.findOneByTitre(titre);
+	}
+
 
 }

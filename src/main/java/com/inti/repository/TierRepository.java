@@ -8,4 +8,5 @@ import com.inti.entities.Tiers;
 @Repository
 public interface TierRepository extends JpaRepository<Tiers, Long>{
 
+	
 }

@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -23,6 +24,10 @@ public class Tiers  implements Serializable{
 	private Long idTiers;
 	private String adresse;
 	private double tel;
+	
+	@ManyToOne
+	private Utilisateur utilisateur;
+	
 	public Long getIdTiers() {
 		return idTiers;
 	}

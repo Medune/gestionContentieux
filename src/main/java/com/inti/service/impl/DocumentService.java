@@ -38,5 +38,11 @@ public class DocumentService implements IDocumentService{
 		
 	}
 
+	@Override
+	public Document findOneByNom(String nom) {
+		// TODO Auto-generated method stub
+		return documentRepository.findOneByNom(nom);
+	}
+
 
 }

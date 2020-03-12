@@ -38,5 +38,10 @@ public class AffaireService implements IAffaireService{
 		
 	}
 
+	@Override
+	public Affaire findOneByTitre(String titre) {
+		return affaireRepository.findOneByTitre(titre);
+	}
+
 
 }

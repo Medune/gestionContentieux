@@ -10,4 +10,5 @@ public interface ITribunalService {
 	Tribunal findOne(Long id);
 	Tribunal save(Tribunal tribunal);
 	void delete(Long id);
+	Tribunal findOneByNomTribunal(String nomTribunal);
 }

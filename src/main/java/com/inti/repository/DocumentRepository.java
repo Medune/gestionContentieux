@@ -7,5 +7,5 @@ import com.inti.entities.Document;
 
 @Repository
 public interface DocumentRepository extends JpaRepository<Document, Long>{
-
+	Document findOneByNom(String nom);
 }

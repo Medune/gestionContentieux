@@ -10,4 +10,5 @@ public interface ITacheService {
 	Tache findOne(Long id);
 	Tache save(Tache tache);
 	void delete(Long id);
+	Tache findOneByTitre(String titre);
 }

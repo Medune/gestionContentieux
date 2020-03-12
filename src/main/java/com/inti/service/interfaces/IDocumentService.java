@@ -10,4 +10,5 @@ public interface IDocumentService {
 	Document findOne(Long id);
 	Document save(Document document);
 	void delete(Long id);
+	Document findOneByNom(String nom);
 }

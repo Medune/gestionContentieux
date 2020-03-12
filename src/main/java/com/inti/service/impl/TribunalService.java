@@ -37,6 +37,9 @@ public class TribunalService implements ITribunalService{
 		tribunalRepository.delete(id);
 		
 	}
-
+	@Override
+	public Tribunal findOneByNomTribunal(String nomTribunal) {
+		return tribunalRepository.findOneByNomTribunal(nomTribunal);
+	}
 
 }

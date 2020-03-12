@@ -37,6 +37,8 @@ public class Utilisateur implements Serializable {
 	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
 	private Set<Affaire> affaires = new HashSet<>();
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
+	private Set<Tiers> tiers = new HashSet<>();
 
 	public String getEmail() {
 		return email;

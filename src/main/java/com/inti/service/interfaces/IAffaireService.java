@@ -10,4 +10,5 @@ public interface IAffaireService {
 	Affaire findOne(Long id);
 	Affaire save(Affaire affaire);
 	void delete(Long id);
+	Affaire findOneByTitre(String titre);
 }
