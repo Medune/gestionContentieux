@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Tribunal;
@@ -18,23 +20,24 @@ import com.inti.service.interfaces.ITribunalService;
 public class TribunalController {
 	@Autowired
 	ITribunalService tribunalService;
-	@RequestMapping(value="tribunals", method=RequestMethod.GET)
+	
+	@GetMapping(value="tribunals")
 	public List<Tribunal> findAll(){
 		return tribunalService.findAll();
 	}
-	@RequestMapping(value="tribunals/{idTribunal}", method=RequestMethod.GET)
+	@GetMapping(value="tribunals/{idTribunal}")
 	public Tribunal findOne(@PathVariable ("idTribunal")Long id) {
 		return tribunalService.findOne(id);
 	}
-	@RequestMapping(value="tribunals", method=RequestMethod.POST)
+	@PostMapping(value="tribunals")
 	public Tribunal saveTribunal(@RequestBody Tribunal tribunal) {
 		return tribunalService.save(tribunal);
 	}
-	@RequestMapping(value="tribunals/{idTribunal}", method=RequestMethod.DELETE)
+	@DeleteMapping(value="tribunals/{idTribunal}")
 	public void deleteTribunal(@PathVariable ("idTribunal")Long id) {
 		tribunalService.delete(id);
 	}
-	@RequestMapping(value="tribunals/{idTribunal}", method=RequestMethod.PUT)
+	@PutMapping(value="tribunals/{idTribunal}")
 	public Tribunal updateTribunal(@PathVariable ("idTribunal")Long id, @RequestBody Tribunal tribunal) {
 		Tribunal currentTribunal = tribunalService.findOne(id);
 		currentTribunal.setAdresse(tribunal.getAdresse());

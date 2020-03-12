@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Phase;
@@ -18,23 +20,24 @@ import com.inti.service.interfaces.IPhaseService;
 public class PhaseController {
 	@Autowired
 	IPhaseService phaseService;
-	@RequestMapping(value="phases", method=RequestMethod.GET)
+	
+	@GetMapping(value="phases")
 	public List<Phase> findAll(){
 		return phaseService.findAll();
 	}
-	@RequestMapping(value="phases/{idPhase}", method=RequestMethod.GET)
+	@GetMapping(value="phases/{idPhase}")
 	public Phase findOne(@PathVariable ("idPhase")Long id) {
 		return phaseService.findOne(id);
 	}
-	@RequestMapping(value="phases", method=RequestMethod.POST)
+	@PostMapping(value="phases")
 	public Phase savePhase(@RequestBody Phase phase) {
 		return phaseService.save(phase);
 	}
-	@RequestMapping(value="phases/{idPhase}", method=RequestMethod.DELETE)
+	@DeleteMapping(value="phases/{idPhase}")
 	public void deletePhase(@PathVariable ("idPhase")Long id) {
 		phaseService.delete(id);
 	}
-	@RequestMapping(value="phases/{idPhase}", method=RequestMethod.PUT)
+	@PutMapping(value="phases/{idPhase}")
 	public Phase updatePhase(@PathVariable ("idPhase")Long id, @RequestBody Phase phase) {
 		Phase currentPhase = phaseService.findOne(id);
 		currentPhase.setNomPhase(phase.getNomPhase());
