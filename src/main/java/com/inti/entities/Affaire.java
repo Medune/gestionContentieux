@@ -25,11 +25,11 @@ public class Affaire  implements Serializable{
 	private String description;
 	private int statut;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Utilisateur utilisateur;
 	@OneToMany(mappedBy="affaire", fetch=FetchType.EAGER)
 	private Set<Phase> phases = new HashSet<>();
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Tribunal tribunal;
 	@OneToMany(mappedBy="affaire", fetch=FetchType.EAGER)
 	private Set<Tache> taches = new HashSet<>();
