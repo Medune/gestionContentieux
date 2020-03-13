@@ -94,13 +94,11 @@ public class Affaire  implements Serializable{
 	public Affaire() {
 		super();
 	}
-	public Affaire(String titre, String description, int statut, Utilisateur utilisateur, Tribunal tribunal) {
+	public Affaire(String titre, String description, int statut) {
 		super();
 		this.titre = titre;
 		this.description = description;
 		this.statut = statut;
-		this.utilisateur = utilisateur;
-		this.tribunal = tribunal;
 	}
 
 	

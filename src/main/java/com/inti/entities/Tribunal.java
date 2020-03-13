@@ -75,14 +75,13 @@ public class Tribunal implements Serializable{
 	public Tribunal() {
 		super();
 	}
-	public Tribunal(String nomTribunal, String adresse, double fax, double tel, String region, Set<Affaire> affaires) {
+	public Tribunal(String nomTribunal, String adresse, double fax, double tel, String region) {
 		super();
 		this.nomTribunal = nomTribunal;
 		this.adresse = adresse;
 		this.fax = fax;
 		this.tel = tel;
 		this.region = region;
-		this.affaires = affaires;
 	}
 	
 	
