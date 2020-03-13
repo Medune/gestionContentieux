@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/users/**", "/roles/**");
+		web.ignoring().antMatchers("/utilisateurs/**", "/roles/**");
 	}
 
 	@Override
