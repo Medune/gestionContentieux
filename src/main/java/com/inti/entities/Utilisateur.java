@@ -96,6 +96,24 @@ public class Utilisateur implements Serializable {
 		this.roles = roles;
 	}
 
+	public Utilisateur(String email, String nomUtilisateur, String prenomUtilisateur, String username, String password,
+			boolean enabled) {
+		this.email = email;
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+	}
+	
+
+	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password) {
+		this.nomUtilisateur = nomUtilisateur;
+		this.prenomUtilisateur = prenomUtilisateur;
+		this.username = username;
+		this.password = password;
+	}
+
 	public Set<Affaire> getAffaires() {
 		return affaires;
 	}
@@ -108,15 +126,7 @@ public class Utilisateur implements Serializable {
 		super();
 	}
 
-	public Utilisateur(String email, String nomUtilisateur, String prenomUtilisateur, String username,
-			String password) {
-		super();
-		this.email = email;
-		this.nomUtilisateur = nomUtilisateur;
-		this.prenomUtilisateur = prenomUtilisateur;
-		this.username = username;
-		this.password = password;
-	}
+
 
 	public boolean isEnabled() {
 		return enabled;

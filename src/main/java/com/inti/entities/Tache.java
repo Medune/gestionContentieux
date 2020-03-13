@@ -29,6 +29,11 @@ public class Tache  implements Serializable{
 	private boolean statutAudience;
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Affaire affaire;
+	@Temporal(TemporalType.DATE)
+	private Date dateDebut;
+	
+	@Temporal(TemporalType.DATE)
+	private Date dateFin;
 	
 	public Long getIdTache() {
 		return idTache;
@@ -67,16 +72,31 @@ public class Tache  implements Serializable{
 	public void setAffaire(Affaire affaire) {
 		this.affaire = affaire;
 	}
-	public Tache(Date dateCreation, String titre, String description, boolean statutAudience, Affaire affaire) {
+	
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	public Date getDateFin() {
+		return dateFin;
+	}
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	public Tache() {
+		super();
+	}
+	public Tache(Date dateCreation, String titre, String description, boolean statutAudience, Date dateDebut,
+			Date dateFin) {
 		super();
 		this.dateCreation = dateCreation;
 		this.titre = titre;
 		this.description = description;
 		this.statutAudience = statutAudience;
-		this.affaire = affaire;
-	}
-	public Tache() {
-		super();
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
 	}
 	
 	
