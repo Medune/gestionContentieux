@@ -28,12 +28,10 @@ public class AppUserDetailsService implements UserDetailsService {
 		    if(dBuserName == null){
 		        throw new UsernameNotFoundException("User not authorized.");
 		    }
-		Set<Role> roles=utilisateur.getRoles();
+		Role role=utilisateur.getRole();
 		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-		for (Role  role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getLibelle()));
 			System.out.println("Le role est: " + role.getLibelle());
-		}
 		UtilisateurDetail  utilisateurDetail = new UtilisateurDetail();
 		utilisateurDetail.setUtilisateur(utilisateur);
 		utilisateurDetail.setAuthorities(authorities);

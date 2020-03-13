@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -31,10 +31,8 @@ public class Utilisateur implements Serializable {
 	private String username;
 	private String password;
 	private boolean enabled = true;
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinTable(name="Profil", joinColumns= {@JoinColumn(name="Utilisateur", referencedColumnName="idUtilisateur")}, 
-	inverseJoinColumns= {@JoinColumn(name="id_Role",table="role",referencedColumnName="idRole")})
-	private Set<Role> roles = new HashSet<>();
+	@ManyToOne
+	private Role role;
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
 	private Set<Affaire> affaires = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
@@ -88,12 +86,12 @@ public class Utilisateur implements Serializable {
 		this.password = password;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public Utilisateur(String email, String nomUtilisateur, String prenomUtilisateur, String username, String password,
