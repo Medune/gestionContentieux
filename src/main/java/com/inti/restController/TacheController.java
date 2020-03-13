@@ -41,6 +41,8 @@ public class TacheController {
 	public Tache updateTache(@PathVariable ("idTache")Long id, @RequestBody Tache tache) {
 		Tache currentTache = tacheService.findOne(id);
 		currentTache.setDateCreation(tache.getDateCreation());
+		currentTache.setDateDebut(tache.getDateDebut());
+		currentTache.setDateFin(tache.getDateFin());
 		currentTache.setTitre(tache.getTitre());
 		currentTache.setDescription(tache.getDescription());
 		currentTache.setStatutAudience(tache.isStatutAudience());

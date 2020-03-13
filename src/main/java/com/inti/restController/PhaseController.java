@@ -41,8 +41,6 @@ public class PhaseController {
 	public Phase updatePhase(@PathVariable ("idPhase")Long id, @RequestBody Phase phase) {
 		Phase currentPhase = phaseService.findOne(id);
 		currentPhase.setNomPhase(phase.getNomPhase());
-		currentPhase.setDateDebut(phase.getDateDebut());
-		currentPhase.setDateFin(phase.getDateFin());
 		return phaseService.save(currentPhase);
 	}
 }

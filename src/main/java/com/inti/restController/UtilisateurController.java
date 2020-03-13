@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
@@ -22,7 +24,7 @@ public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
 
-	@GetMapping(value="utilisateurs")
+	@RequestMapping(value="utilisateurs", method = RequestMethod.GET)
 	public List<Utilisateur> findAll() {
 		return utilisateurService.findAll();
 	}
@@ -31,7 +33,7 @@ public class UtilisateurController {
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
 	}
-	@PostMapping(value="utilisateurs")
+	@RequestMapping(value="utilisateurs", method = RequestMethod.POST)
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
 		return utilisateurService.save(utilisateur);
 	}
