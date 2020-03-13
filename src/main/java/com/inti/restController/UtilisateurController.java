@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.inti.entities.Utilisateur;
@@ -24,32 +22,32 @@ public class UtilisateurController {
 	@Autowired
 	IUtilisateurService utilisateurService;
 
-	@RequestMapping(value="utilisateurs", method = RequestMethod.GET)
+	@GetMapping(value="utilisateurs")
 	public List<Utilisateur> findAll() {
 		return utilisateurService.findAll();
 	}
 
-	@GetMapping(value="utilisateurs/{idUser}")
+	@GetMapping(value="utilisateurs/{idUtilisateur}")
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
 	}
-	@RequestMapping(value="utilisateurs", method = RequestMethod.POST)
-	public Utilisateur saveUtilisateur(@RequestBody Utilisateur user) {
-		return utilisateurService.save(user);
+	@PostMapping(value="utilisateurs")
+	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
+		return utilisateurService.save(utilisateur);
 	}
 
-	@DeleteMapping(value="utilisateurs/{idUser}")
+	@DeleteMapping(value="utilisateurs/{idUtilisateur}")
 	public void deleteUtilisateur(@PathVariable("idUtilisateur") Long id) {
 		utilisateurService.delete(id);
 	}
 
 	@PutMapping(value="roles/{idUtilisateur}") // PUT pour faire des mises à jour
-	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long id, @RequestBody Utilisateur user) {
+	public Utilisateur updateUtilisateur(@PathVariable("idUtilisateur") Long id, @RequestBody Utilisateur utilisateur) {
 		Utilisateur currentUtilisateur = utilisateurService.findOne(id);
-		currentUtilisateur.setNomUtilisateur(user.getNomUtilisateur());
-		currentUtilisateur.setPrenomUtilisateur(user.getPrenomUtilisateur());
-		currentUtilisateur.setUsername(user.getUsername());
-		currentUtilisateur.setPassword(user.getPassword());
+		currentUtilisateur.setNomUtilisateur(utilisateur.getNomUtilisateur());
+		currentUtilisateur.setPrenomUtilisateur(utilisateur.getPrenomUtilisateur());
+		currentUtilisateur.setUsername(utilisateur.getUsername());
+		currentUtilisateur.setPassword(utilisateur.getPassword());
 
 		return utilisateurService.save(currentUtilisateur);
 

@@ -9,7 +9,7 @@ public interface IUtilisateurService {
 	
 	List<Utilisateur> findAll();
 	Utilisateur findOne(Long id);
-	Utilisateur save(Utilisateur user);
+	Utilisateur save(Utilisateur utilisateur);
 	void delete(Long id);
 	Utilisateur findOneByUsername(String username);
 	
