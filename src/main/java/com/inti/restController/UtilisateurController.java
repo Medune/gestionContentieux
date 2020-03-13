@@ -34,8 +34,8 @@ public class UtilisateurController {
 		return utilisateurService.findOne(id);
 	}
 	@RequestMapping(value="utilisateurs", method = RequestMethod.POST)
-	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
-		return utilisateurService.save(utilisateur);
+	public Utilisateur saveUtilisateur(@RequestBody Utilisateur user) {
+		return utilisateurService.save(user);
 	}
 
 	@DeleteMapping(value="utilisateurs/{idUser}")
