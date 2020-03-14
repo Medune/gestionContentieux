@@ -23,16 +23,14 @@ public class AppUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Utilisateur utilisateur=utilisateurService.findOneByUsername(username);
-		  String dBuserName = utilisateur.getUsername();
-		    if(dBuserName == null){
-		        throw new UsernameNotFoundException("User not authorized.");
-		    }
-		Role role=utilisateur.getRole();
-		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		Utilisateur utilisateur = utilisateurService.findOneByUsername(username);
+		Set<Role> roles = utilisateur.getRoles();
+		Set<GrantedAuthority> authorities = new HashSet<>();
+		for (Role role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getLibelle()));
-			System.out.println("Le role est: " + role.getLibelle());
-		UtilisateurDetail  utilisateurDetail = new UtilisateurDetail();
+			System.out.println("Role : "+role.getLibelle());
+		}
+		UtilisateurDetail utilisateurDetail = new UtilisateurDetail();
 		utilisateurDetail.setUtilisateur(utilisateur);
 		utilisateurDetail.setAuthorities(authorities);
 		return utilisateurDetail;

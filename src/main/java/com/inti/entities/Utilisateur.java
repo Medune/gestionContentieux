@@ -31,8 +31,13 @@ public class Utilisateur implements Serializable {
 	private String username;
 	private String password;
 	private boolean enabled = true;
-	@ManyToOne
-	private Role role;
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name="profil",
+			joinColumns= {@JoinColumn(name="id_Utilisateur", referencedColumnName="idUtilisateur")},
+			inverseJoinColumns = {@JoinColumn(name="id_Role",table="role", referencedColumnName="idRole")}
+			)
+	private Set<Role> roles = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
 	private Set<Affaire> affaires = new HashSet<>();
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.EAGER)
@@ -86,12 +91,22 @@ public class Utilisateur implements Serializable {
 		this.password = password;
 	}
 
-	public Role getRole() {
-		return role;
+
+
+	public Set<Role> getRoles() {
+		return roles;
 	}
 
-	public void setRole(Role role) {
-		this.role = role;
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public Set<Tiers> getTiers() {
+		return tiers;
+	}
+
+	public void setTiers(Set<Tiers> tiers) {
+		this.tiers = tiers;
 	}
 
 	public Utilisateur(String email, String nomUtilisateur, String prenomUtilisateur, String username, String password,
