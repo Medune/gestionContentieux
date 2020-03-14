@@ -47,7 +47,7 @@ public class TacheService implements ITacheService{
 	}
 	@Override
 	public List<Tache> findAllByDateDebut(Date dateDebut) {
-		return tacheRepository.findAllByDateDebut();
+		return tacheRepository.findAllByDateDebut(dateDebut);
 	}
 
 

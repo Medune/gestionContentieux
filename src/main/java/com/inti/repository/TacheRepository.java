@@ -12,5 +12,5 @@ import com.inti.entities.Tache;
 public interface TacheRepository extends JpaRepository<Tache, Long>{
 	Tache findOneByTitre(String titre);
 	Tache findOneByDateDebut(Date dateDebut);
-	List<Tache> findAllByDateDebut();
+	List<Tache> findAllByDateDebut(Date dateDebut);
 	}
