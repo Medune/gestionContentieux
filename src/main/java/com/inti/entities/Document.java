@@ -1,12 +1,15 @@
 package com.inti.entities;
 
+
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -24,6 +27,9 @@ public class Document implements Serializable{
 	
 	private String nom;
 	private String description;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private Affaire affaire;
 	
 	public Long getIdDocument() {
 		return idDocument;
@@ -49,6 +55,7 @@ public class Document implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 	public Document() {
 		super();
 	}

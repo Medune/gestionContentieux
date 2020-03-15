@@ -1,5 +1,6 @@
 package com.inti.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,19 @@ public class TacheService implements ITacheService{
 
 	@Override
 	public void delete(Long id) {
-		tacheRepository.delete(id);
-		
+		tacheRepository.delete(id);		
 	}
-
 	@Override
 	public Tache findOneByTitre(String titre) {
-		// TODO Auto-generated method stub
 		return tacheRepository.findOneByTitre(titre);
+	}
+	@Override
+	public Tache findOneByDateDebut(Date dateDebut) {
+		return tacheRepository.findOneByDateDebut(dateDebut);
+	}
+	@Override
+	public List<Tache> findAllByDateDebut(Date dateDebut) {
+		return tacheRepository.findAllByDateDebut(dateDebut);
 	}
 
 

@@ -55,6 +55,13 @@ public class Tiers  implements Serializable{
 		this.adresse = adresse;
 		this.tel = tel;
 	}
+	@Override
+	public String toString() {
+		return "Tiers [adresse=" + adresse + ", tel=" + tel + ", utilisateur=" + utilisateur + ", domaine ="
+				+ super.toString() + "]";
+	}
+	
+	
 	
 	
 }

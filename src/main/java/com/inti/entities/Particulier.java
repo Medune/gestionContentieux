@@ -17,8 +17,8 @@ public class Particulier extends Tiers{
 	public String getCIN() {
 		return CIN;
 	}
-	public void setCIN(String cIN) {
-		CIN = cIN;
+	public void setCIN(String CIN) {
+		this.CIN = CIN;
 	}
 	public String getNom() {
 		return nom;
