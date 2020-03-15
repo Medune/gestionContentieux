@@ -27,9 +27,13 @@ public class UtilisateurController {
 		return utilisateurService.findAll();
 	}
 
-	@GetMapping(value="utilisateurs/{idUtilisateur}")
+	@GetMapping(value="utilisateurs/id/{idUtilisateur}")
 	public Utilisateur findOne(@PathVariable("idUtilisateur") Long id) {
 		return utilisateurService.findOne(id);
+	}
+	@GetMapping(value="utilisateurs/username/{username}")
+	public Utilisateur findOneByUsername(@PathVariable("username") String username) {
+		return utilisateurService.findOneByUsername(username);
 	}
 	@PostMapping(value="utilisateurs")
 	public Utilisateur saveUtilisateur(@RequestBody Utilisateur utilisateur) {
