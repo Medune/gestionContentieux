@@ -35,8 +35,11 @@ public class Particulier extends Tiers{
 	public Particulier() {
 		super();
 	}
-	public Particulier(String adresse, double tel) {
+	public Particulier(String CIN, String nom, String prenom, String adresse, double tel) {
 		super(adresse, tel);
+		this.CIN = CIN;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 	
 	
