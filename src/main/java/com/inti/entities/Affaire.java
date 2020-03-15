@@ -33,7 +33,8 @@ public class Affaire  implements Serializable{
 	private Tribunal tribunal;
 	@OneToMany(mappedBy="affaire", fetch=FetchType.EAGER)
 	private Set<Tache> taches = new HashSet<>();
-	
+	@OneToMany(mappedBy="affaire", fetch=FetchType.EAGER)
+	private Set<Document> documents = new HashSet<>();
 	
 	
 	public Long getIdAffaire() {
@@ -91,6 +92,12 @@ public class Affaire  implements Serializable{
 		this.taches = taches;
 	}
 
+	public Set<Document> getDocuments() {
+		return documents;
+	}
+	public void setDocuments(Set<Document> documents) {
+		this.documents = documents;
+	}
 	public Affaire() {
 		super();
 	}
